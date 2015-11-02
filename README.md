@@ -6,7 +6,7 @@ see https://msdn.microsoft.com/en-us/library/windows/desktop/dd798636(v=vs.85).a
 
 ## Installation
 ```
-  npm install gulp-nks-rewrite-meta --save
+  npm install riff-reader --save
 ```
 
 ## Usage

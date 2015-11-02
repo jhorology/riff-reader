@@ -12,10 +12,10 @@ see https://msdn.microsoft.com/en-us/library/windows/desktop/dd798636(v=vs.85).a
 ## Usage
 
 ```javascript
-reader = require('riff-reader');
+var reader = require('riff-reader');
 
 reader('.../hogehoge.riff', 'HOGE')
-    .read(function(chunkId, data) {
+    .readSync(function(chunkId, data) {
         // do something with id and data buffer
     },['HOGE','FUGA']);
 
@@ -24,7 +24,7 @@ reader('.../hogehoge.riff', 'HOGE')
 var buffer = fs.readFileSync('.../hogehoge.riff');
 
 reader(buffer, 'HOGE')
-    .read(function(chunkId, data) {
+    .readSync(function(chunkId, data) {
         // do something with id and data buffer
     },['HOGE','FUGA']);
 ```

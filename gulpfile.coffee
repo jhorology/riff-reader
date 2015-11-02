@@ -6,7 +6,6 @@ data        = require 'gulp-data'
 watch       = require 'gulp-watch'
 beautify    = require 'js-beautify'
 
-reader      = require './'
 
   
 gulp.task 'coffeelint', ->
@@ -36,6 +35,7 @@ gulp.task 'test', [
   ]
 
 gulp.task '_test-file', ['default'], ->
+  reader      = require './'
   gulp.src ["sample.riff"], read: off
     .pipe data (file) ->
       reader file.path, 'NIKS'
@@ -43,6 +43,7 @@ gulp.task '_test-file', ['default'], ->
           console.info "## chunk Id:#{id}  size:#{chunk.length}"
 
 gulp.task '_test-file-chunk', ['default'], ->
+  reader      = require './'
   gulp.src ["sample.riff"], read: off
     .pipe data (file) ->
       reader file.path, 'NIKS'
@@ -52,6 +53,7 @@ gulp.task '_test-file-chunk', ['default'], ->
 
 
 gulp.task '_test-buffer', ['default'], ->
+  reader      = require './'
   gulp.src ["sample.riff"], read: on
     .pipe data (file) ->
       reader file.contents, 'NIKS'
@@ -59,6 +61,7 @@ gulp.task '_test-buffer', ['default'], ->
           console.info "## chunk Id:#{id}  size:#{chunk.length}"
 
 gulp.task '_test-buffer-chunk', ['default'], ->
+  reader      = require './'
   gulp.src ["sample.riff"], read: on
     .pipe data (file) ->
       reader file.contents, 'NIKS'

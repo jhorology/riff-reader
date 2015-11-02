@@ -44,7 +44,7 @@ Type: `String`
 
 The form type of the RIFF content.
 
-### reader.read(callback, [subscribeIds])
+### reader.readSync(callback, [subscribeIds])
 read file synchronously.
 
 #### callback

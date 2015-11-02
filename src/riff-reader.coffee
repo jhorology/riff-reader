@@ -31,11 +31,11 @@ class RIFFReader
     @formType = header.toString 'ascii', 8, 12
     assert.ok (@formType is formType), "Invalid file. form type:#{@formType}"
 
-  # read(callback, [subscribeIds])
+  # readSync(callback, [subscribeIds])
   #
   # - callback     function(chunkId, data)
   # - subscribeIds array of chunk id. *optional
-  read: (callback, subscribeIds) ->
+  readSync: (callback, subscribeIds) ->
     while @pos < @fileSize
       @_readChunk callback, subscribeIds
     @

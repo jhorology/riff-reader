@@ -39,7 +39,7 @@ gulp.task '_test-file', ['default'], ->
   gulp.src ["sample.riff"], read: off
     .pipe data (file) ->
       reader file.path, 'NIKS'
-        .read (id, chunk) ->
+        .readSync (id, chunk) ->
           console.info "## chunk Id:#{id}  size:#{chunk.length}"
 
 gulp.task '_test-file-chunk', ['default'], ->
@@ -47,7 +47,7 @@ gulp.task '_test-file-chunk', ['default'], ->
   gulp.src ["sample.riff"], read: off
     .pipe data (file) ->
       reader file.path, 'NIKS'
-        .read (id, chunk) ->
+        .readSync (id, chunk) ->
           console.info "## chunk Id:#{id}  size:#{chunk.length}"
         , ['NISI', 'PLID']
 
@@ -57,7 +57,7 @@ gulp.task '_test-buffer', ['default'], ->
   gulp.src ["sample.riff"], read: on
     .pipe data (file) ->
       reader file.contents, 'NIKS'
-        .read (id, chunk) ->
+        .readSync (id, chunk) ->
           console.info "## chunk Id:#{id}  size:#{chunk.length}"
 
 gulp.task '_test-buffer-chunk', ['default'], ->
@@ -65,6 +65,6 @@ gulp.task '_test-buffer-chunk', ['default'], ->
   gulp.src ["sample.riff"], read: on
     .pipe data (file) ->
       reader file.contents, 'NIKS'
-        .read (id, chunk) ->
+        .readSync (id, chunk) ->
           console.info "## chunk Id:#{id}  size:#{chunk.length}"
         , ['NISI', 'PLID']

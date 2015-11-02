@@ -1,6 +1,6 @@
 {
     "name": "riff-reader",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "description": "RIFF (Resource Interchange File Format) file reader.",
     "main": "index.js",
     "scripts": {
@@ -12,7 +12,7 @@
         "url": "git+https://github.com/jhorology/riff-reader.git"
     },
     "keywords": [
-        "gulp", "gulpplugin", "RIFF"
+        "RIFF", "riff", "reader"
     ],
     "author": "jhorology2014@gmail.com",
     "license": "MIT",

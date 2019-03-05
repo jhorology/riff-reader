@@ -5,3 +5,4 @@ target/
 build/
 components/
 node_modules/
+package-lock.json

@@ -19,15 +19,18 @@ class RIFFReader
   # - file     String filepath or content buffer
   # - formType 4 characters id
   constructor: (file, formType) ->
-    if _.isString file
+    fileSize = if _.isString file
       @filepath = file
+      stat = fs.statSync file
+      stat.size
     else
       @buf = file
+      @buf.length
     @pos = 0
     header = @_read 12
     magic = header.toString 'utf8', 0, 4
     assert.ok (magic is 'RIFF'), "Invalid file. magic:#{magic}"
-    @fileSize = (header.readUInt32LE 4) + 8
+    @fileSize = Math.min (header.readUInt32LE 4) + 8, fileSize
     @formType = header.toString 'ascii', 8, 12
     assert.ok (@formType is formType), "Invalid file. form type:#{@formType}"
 

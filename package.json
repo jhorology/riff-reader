@@ -1,6 +1,6 @@
 {
     "name": "riff-reader",
-    "version": "0.0.8",
+    "version": "0.0.10",
     "description": "RIFF (Resource Interchange File Format) file reader.",
     "main": "index.js",
     "scripts": {

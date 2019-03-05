@@ -67,7 +67,7 @@ class RIFFReader
       @_readBuffer len
 
   _readFile: (len) ->
-    ret = new Buffer len
+    ret = Buffer.alloc len
     fd = fs.openSync @filepath, 'r'
     bytesRead = fs.readSync fd, ret, 0, len, @pos
     fs.closeSync fd

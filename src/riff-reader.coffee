@@ -36,8 +36,11 @@ class RIFFReader
   # - callback     function(chunkId, data)
   # - subscribeIds array of chunk id. *optional
   readSync: (callback, subscribeIds) ->
-    while @pos < @fileSize
+    # RIFF size of some files has wrong (+1) value
+    remainSize = @fileSize - @pos
+    while remainSize >= 4
       @_readChunk callback, subscribeIds
+      remainSize = @fileSize - @pos
     @
 
   _readChunk: (callback, subscribeIds) ->
